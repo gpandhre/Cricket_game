@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cricket</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <h1>Cricket Game</h1>
+    <div class="btns">
+    <button class="bat" onclick="
+        let computerChoice=generateCompChoice();
+        let resultMsg;
+        if(computerChoice==='BAT')
+        {
+          resultMsg='Its a Tie';
+          alert(`User has chosen BAT. Computer has chosen ${computerChoice} and ${resultMsg}.`);  
+        }
+        else if(computerChoice==='BALL')
+        {
+          resultMsg='User Won'; 
+          alert(`User has chosen BAT. Computer has chosen ${computerChoice} and ${resultMsg}.`);
+          userScore++;
+          
+          document.querySelector('.user').innerHTML=`User scored : ${userScore}`;
+          
+
+          
+        }
+        else if(computerChoice==='STUMP')
+        {
+            resultMsg='Computer Won';
+            alert(`User has chosen BAT. Computer has chosen ${computerChoice} and ${resultMsg}.`);
+            compScore++;
+            document.querySelector('.comp').innerHTML=`Computer Scored : ${compScore}`;
+        }
+        
+        if(userScore===5)
+        {
+        if(confirm('You Won \n Click OK to start again!'));
+             
+            {
+                userScore=0;
+                compScore=0;
+                document.querySelector('.comp').innerHTML=`Computer Scored : ${compScore}`;
+                document.querySelector('.user').innerHTML=`User scored : ${userScore}`;
+            
+            }
+        } 
+        else if(compScore===5)
+        {
+            if(confirm('You Lose \n Click OK to start again!'));
+             
+             {
+                 userScore=0;
+                 compScore=0;
+                 document.querySelector('.comp').innerHTML=`Computer Scored : ${compScore}`;
+                 document.querySelector('.user').innerHTML=`User scored : ${userScore}`;
+             
+             } 
+        }
+
+
+        ">BAT</button>
+    <button class="ball" onclick="
+      computerChoice=generateCompChoice();
+        if(computerChoice==='BAT')
+        {
+            resultMsg='Computer Won';
+            alert(`User has chosen STUMP. Computer has chosen ${computerChoice} and ${resultMsg}.`);
+            compScore++;
+            document.querySelector('.comp').innerHTML=`Computer Scored : ${compScore}`;
+           
+        }
+        else if(computerChoice==='BALL')
+        {
+            resultMsg='Its a Tie';
+            alert(`User has chosen STUMP. Computer has chosen ${computerChoice} and ${resultMsg}.`);
+        }
+        else
+        {
+            
+            resultMsg='User Won';
+            alert(`User has chosen STUMP. Computer has chosen ${computerChoice} and ${resultMsg}.`);
+            userScore++;
+            document.querySelector('.user').innerHTML=`User scored : ${userScore}`;
+        }
+        if(userScore===5)
+        {
+        if(confirm('You Won \n Click OK to start again!'));
+             
+            {
+                userScore=0;
+                compScore=0;
+                document.querySelector('.comp').innerHTML=`Computer Scored : ${compScore}`;
+                document.querySelector('.user').innerHTML=`User scored : ${userScore}`;
+            
+            }
+        } 
+        else if(compScore===5)
+        {
+            if(confirm('You Lose \n Click OK to start again!'));
+             
+             {
+                 userScore=0;
+                 compScore=0;
+                 document.querySelector('.comp').innerHTML=`Computer Scored : ${compScore}`;
+                 document.querySelector('.user').innerHTML=`User scored : ${userScore}`;
+             
+             } 
+        }
+
+    ">BALL</button>
+    <button class="stump" onclick="
+        computerChoice=generateCompChoice();
+     
+        if(computerChoice==='BAT')
+        {
+            resultMsg='User Won';
+            alert(`User has chosen STUMP. Computer has chosen ${computerChoice} and ${resultMsg}.`);
+            userScore++;
+            document.querySelector('.user').innerHTML=`User scored : ${userScore}`;
+           
+        }
+        else if(computerChoice==='BALL')
+        {
+            
+            resultMsg='Computer Won';
+            alert(`User has chosen STUMP. Computer has chosen ${computerChoice} and ${resultMsg}.`);
+            compScore++;
+            document.querySelector('.comp').innerHTML=`Computer Scored : ${compScore}`;
+        }
+        else
+        {
+            resultMsg='Its a Tie';
+            
+        }
+        if(userScore===5)
+        {
+        if(confirm('You Won \n Click OK to start again!'));
+             
+            {
+                userScore=0;
+                compScore=0;
+                document.querySelector('.comp').innerHTML=`Computer Scored : ${compScore}`;
+                document.querySelector('.user').innerHTML=`User scored : ${userScore}`;
+            
+            }
+        } 
+        else if(compScore===5)
+        {
+            if(confirm('You Lose \n Click OK to start again!'));
+             
+             {
+                 userScore=0;
+                 compScore=0;
+                 document.querySelector('.comp').innerHTML=`Computer Scored : ${compScore}`;
+                 document.querySelector('.user').innerHTML=`User scored : ${userScore}`;
+             
+             } 
+        }
+
+    ">STUMP</button>
+    </div>
+    <h2 class="user"></h2>
+    <h2 class="comp"></h2>
+    <script>
+        
+        function generateCompChoice(){
+            let randomNum=Math.random()*3;
+            if(randomNum>0 && randomNum<=1)
+            {
+                return 'BAT';
+            }
+            else if(randomNum >1 && randomNum<=2)
+            {
+                return 'BALL';
+
+            }
+            else if(randomNum>2 && randomNum<=3)
+            {
+                return 'STUMP';
+            }
+        };
+        
+        
+        let userScore=0;
+        let compScore=0;
+        document.querySelector('.user').innerHTML=`User scored : ${userScore}`;
+        document.querySelector('.comp').innerHTML=`Computer Scored : ${compScore}`; 
+        
+        
+           
+        
+         
+        
+    </script>
+</body>
+</html>
